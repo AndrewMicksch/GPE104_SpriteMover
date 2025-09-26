@@ -4,14 +4,24 @@ using UnityEngine.UIElements;
 public class NewMonoBehaviourScript : MonoBehaviour
 {
     //TODO: Specify the Location variables
-    private Transform currentLocation;
-    public float maxPosition;
-    
+    private Transform location;
+    public Vector2 currentLocation = new Vector2(0f, 0f);
+    public Vector2 randomX = new Vector2();
+    public Vector2 randomY = new Vector2();
+    float minX = -10f;
+    float maxX = 10f;
+    float minY = -5f;
+    float maxY = 5f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        currentLocation = gameObject.GetComponent<Transform>();
-        float maxPosition ()
+       
+        // Limits of position
+       
+
+        //Random location within range
+       
     }
 
     // Update is called once per frame
@@ -22,9 +32,9 @@ public class NewMonoBehaviourScript : MonoBehaviour
         {
             Debug.Log("The T key is down");
             //Set the locations it can teleport to
-            float axisValue = Input.GetAxis(1,1,0);
-            float position = axisValue * localPosition;
-            currentLocation.localPosition += Vector3.one * positionAmount;
+            float randomX = Random.Range(minX, maxX);
+            float randomY = Random.Range(minY, maxY);
+            transform.position = new Vector2(randomX, randomY);
         }
 
     }
